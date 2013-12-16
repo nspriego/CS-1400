@@ -5,9 +5,9 @@ class Form
 		StreamReader theTextFile = new StreamReader("employees.txt");
 		string line = "";
 		const int SIZE = 10;
-		Employee[SIZE] emps;
+		Employee[] emps = new Employee[SIZE];
 
-		for (int i = 1; (line = sr.ReadLine()) != NULL; i++)
+		for (int i = 1; (line = sr.ReadLine()) != null; i++)
 		{
 			string num = "";
 			string name = "";
@@ -18,7 +18,7 @@ class Form
 			
 			if (i % 4 == 1) num = line;
 			if (i % 4 == 2) name = line;
-			if (i % 4 == 3) address = line;
+			if (i % 4 == 3) addr = line;
 			if (i % 4 == 0) 
 			{
 				payLine = line.Split();
@@ -27,7 +27,7 @@ class Form
 
 				// create the employee object
 				Employee e = new Employee(num, name, addr, wage, hours);
-				emp[i-1] = e;
+				emps[i-1] = e;
 			}
 		}
 	}
