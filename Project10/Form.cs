@@ -6,15 +6,16 @@ class Form
 		string line = "";
 		const int SIZE = 10;
 		Employee[] emps = new Employee[SIZE];
+		string num = "";
+		string name = "";
+		string addr = "";
+		string[] payLine;
+		double wage = 0;
+		int hours = 0;
+		int count = 0; 
 
 		for (int i = 1; (line = sr.ReadLine()) != null; i++)
 		{
-			string num = "";
-			string name = "";
-			string addr = "";
-			string[] payLine;
-			double wage = 0;
-			int hours = 0;
 			
 			if (i % 4 == 1) num = line;
 			if (i % 4 == 2) name = line;
@@ -27,7 +28,8 @@ class Form
 
 				// create the employee object
 				Employee e = new Employee(num, name, addr, wage, hours);
-				emps[i-1] = e;
+				emps[count] = e;
+				count++;
 			}
 		}
 	}
